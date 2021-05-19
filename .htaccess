@@ -1,0 +1,22 @@
+ErrorDocument 400 ./error.php
+ErrorDocument 401 ./error.php
+ErrorDocument 403 ./error.php
+ErrorDocument 404 ./error.php
+ErrorDocument 503 ./error.php
+php_value display_errors Off
+php_flag magic_quotes 1
+php_flag magic_quotes_gpc 1
+php_value mbstring.http_input auto
+php_value date.timezone Indian/Maldives
+# HTID:13559605: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:13559605:
+php_flag output_buffering on
+php_value upload_max_filesize 3000M
+php_value post_max_size 3000M
+php_value max_execution_time 300
+php_value max_input_time 300
+LimitRequestBody 20971520
+# Run Php without filename extension
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
